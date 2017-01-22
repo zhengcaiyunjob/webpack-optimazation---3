@@ -17,7 +17,7 @@ module.exports = {
   ]
 };
 ```
-###但是上面的这种情况会出现一种问题，就是当其他的页面发生修改的时候，webpack会重新编译，那么这个时候vendor中的文件又会重新编译，其实这些文件是可以不用被重新编译的，所以我们可以建立一个额外的webpack.config.dll文件来单独的打包vendor中的这些文件，这样在每次重新编译的时候，vendor中的文件不再进行重新编译,同时利用DllPlugin插件。执行webpack --config filename,这样生成了lib.js文件，直接在页面中引入后，当其他文件变化时，vendor中的代码不再被重新编译。
+###2,但是上面的这种情况会出现一种问题，就是当其他的页面发生修改的时候，webpack会重新编译，那么这个时候vendor中的文件又会重新编译，其实这些文件是可以不用被重新编译的，所以我们可以建立一个额外的webpack.config.dll文件来单独的打包vendor中的这些文件，这样在每次重新编译的时候，vendor中的文件不再进行重新编译,同时利用DllPlugin插件。执行webpack --config filename,这样生成了lib.js文件，直接在页面中引入后，当其他文件变化时，vendor中的代码不再被重新编译。
 ```javascript
 var webpack = require('webpack');
 
